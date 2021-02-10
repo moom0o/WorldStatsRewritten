@@ -8,6 +8,8 @@ Much better world stats plugin than https://www.spigotmc.org/resources/worldstat
 For the plugin to calculate world time please convert the date of your map start to epoch milliseconds and set the time setting in config.yml to the epoch.
 # Support
 Please note I made this at 1AM on a school night so the code is probably shit and full of bugs, join my support discord if you have any issues.
+<br>
+Discord: https://discord.gg/HfuyuqhXdb
 # Config
 <details>
   <summary>config.yml</summary>
