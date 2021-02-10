@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public final class Main extends JavaPlugin {
     public double size;
-    public double offlinePlayers;
+    public int offlinePlayers;
 
     @Override
     public void onEnable() {
