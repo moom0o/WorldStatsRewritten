@@ -1,0 +1,9 @@
+name: Worldstats
+version: ${project.version}
+main: me.moomoo.worldstats.Main
+softdepend: [ProtocolLib]
+commands:
+  worldstats:
+    usage: /<command>
+    description: stats
+    aliases: [/worldstats, /info, /stats]
