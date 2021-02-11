@@ -1,6 +1,6 @@
 [![Discord Mine](https://img.shields.io/discord/807380182729228298?label=chat&logo=discord&logoColor=white)](https://discord.gg/JtKJF3Jgwm)
 
-# WorldStats
+# WorldStatsRewritten
 Much better world stats plugin than https://www.spigotmc.org/resources/worldstats.74355/
 <br>Server will no longer lag by spamming /stats!
 <br>MAKE SURE YOU REMOVE ALL OLD WORLDSTATS FILES!
