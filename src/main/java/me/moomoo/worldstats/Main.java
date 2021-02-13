@@ -21,12 +21,11 @@ public final class Main extends JavaPlugin {
         }
         getCommand("worldstats").setExecutor(new Commands(this));
         // Check every 1 hour.
-        Bukkit.getScheduler().runTaskTimer(this, () -> {
-            double s = list(new File(getConfig().getString("world")), new File(getConfig().getString("world_nether")), new File(getConfig().getString("world_the_end"))) / 1048576.0D / 1000.0D;
-            getLogger().info("[WorldStats] Finished checking file size: " + s);
-            size = s;
+        Bukkit.getScheduler().runTaskTimer(this, () -> new Thread(() -> {
+            size = list(new File(getConfig().getString("world")), new File(getConfig().getString("world_nether")), new File(getConfig().getString("world_the_end"))) / 1048576.0D / 1000.0D;
             offlinePlayers = Bukkit.getOfflinePlayers().length;
-        }, 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
+            getLogger().info("[WorldStats] Finished checking file size: " + size);
+        }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new Expansions(this).register();
