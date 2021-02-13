@@ -22,7 +22,7 @@ public final class Main extends JavaPlugin {
         getCommand("worldstats").setExecutor(new Commands(this));
         // Check every 1 hour.
         Bukkit.getScheduler().runTaskTimer(this, () -> new Thread(() -> {
-            size = list(new File(getConfig().getString("world")), new File(getConfig().getString("world_nether")), new File(getConfig().getString("world_the_end"))) / 1048576.0D / 1000.0D;
+            size = list() / 1048576.0D / 1000.0D;
             offlinePlayers = Bukkit.getOfflinePlayers().length;
             getLogger().info("[WorldStats] Finished checking file size: " + size);
         }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
@@ -37,21 +37,13 @@ public final class Main extends JavaPlugin {
         getLogger().info("WorldStats disabled");
     }
 
-    private long list(File world, File nether, File end) {
+    private long list() {
         long l = 0L;
-        for (File file : Objects.requireNonNull(world.listFiles())) {
-            if (file.isFile()) {
-                l += file.length();
-            }
-        }
-        for (File file : Objects.requireNonNull(nether.listFiles())) {
-            if (file.isFile()) {
-                l += file.length();
-            }
-        }
-        for (File file : Objects.requireNonNull(end.listFiles())) {
-            if (file.isFile()) {
-                l += file.length();
+        for (String s : getConfig().getStringList("Worlds")) {
+            for (File file : Objects.requireNonNull(new File(s).listFiles())) {
+                if (file.isFile()) {
+                    l += file.length();
+                }
             }
         }
         return l;

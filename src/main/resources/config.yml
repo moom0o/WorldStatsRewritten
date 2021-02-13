@@ -5,6 +5,7 @@ message:
     size of &6%fileSize% GB'
   - '&7-----------------------------------------------------'
 filesizeupdate_in_ticks: 72000
-world: "./world/region"
-world_nether: "./world_nether/DIM-1/region"
-world_the_end: "./world_the_end/DIM1/region"
+Worlds:
+  - "./world/region"
+  - "./world_nether/DIM-1/region"
+  - "./world_the_end/DIM1/region"
