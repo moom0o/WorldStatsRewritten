@@ -8,6 +8,8 @@ Server will no longer lag by spamming /stats!
 For the plugin to calculate world time please convert the date of your map start to epoch milliseconds and set the time setting in config.yml to the epoch.
 # PlaceholderAPI
 * %worldstats_filesize% - Get the cached file size.
+* %worldstats_players% - Get the cached unique players amount.
+* %worldstats_days% - Get how old the map is in DAYS
 # Support
 Please note I made this at 1AM on a school night so the code is probably shit and full of bugs, join my support discord if you have any issues.
 <br>

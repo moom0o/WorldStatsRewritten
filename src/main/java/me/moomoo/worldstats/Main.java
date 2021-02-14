@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public final class Main extends JavaPlugin {
     public double size;
@@ -28,6 +29,7 @@ public final class Main extends JavaPlugin {
             getLogger().info("[WorldStats] Finished checking file size: " + size);
             metrics.addCustomChart(new Metrics.SingleLineChart("total_world_size", () -> (int) size));
             metrics.addCustomChart(new Metrics.SingleLineChart("total_unique_players", () -> offlinePlayers));
+            metrics.addCustomChart(new Metrics.SingleLineChart("total_map_age", () -> Math.toIntExact(TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - getConfig().getLong("time")))));
         }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {

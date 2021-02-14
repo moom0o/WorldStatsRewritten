@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
+import java.util.concurrent.TimeUnit;
 
 public class Expansions extends PlaceholderExpansion {
     private final Main plugin;
@@ -45,6 +46,9 @@ public class Expansions extends PlaceholderExpansion {
         }
         if (identifier.equals("players")) {
             return String.valueOf(plugin.offlinePlayers);
+        }
+        if (identifier.equals("days")) {
+            return String.valueOf(TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - plugin.getConfig().getLong("time")));
         }
         return null;
     }
