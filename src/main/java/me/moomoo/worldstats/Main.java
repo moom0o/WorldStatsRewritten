@@ -27,10 +27,12 @@ public final class Main extends JavaPlugin {
             size = list() / 1048576.0D / 1000.0D;
             offlinePlayers = Bukkit.getOfflinePlayers().length;
             getLogger().info("[WorldStats] Finished checking file size: " + size);
+        }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
+        Bukkit.getScheduler().runTaskLater(this, () -> {
             metrics.addCustomChart(new Metrics.SingleLineChart("total_world_size", () -> (int) size));
             metrics.addCustomChart(new Metrics.SingleLineChart("total_unique_players", () -> offlinePlayers));
             metrics.addCustomChart(new Metrics.SingleLineChart("total_map_age", () -> Math.toIntExact(TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - getConfig().getLong("time")))));
-        }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
+        }, 12000L);
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new Expansions(this).register();
