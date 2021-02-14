@@ -13,6 +13,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Metrics metrics = new Metrics(this, 10319);
         getLogger().info("WorldStats enabled");
         saveDefaultConfig();
         if (getConfig().get("time") == null) {
@@ -25,6 +26,8 @@ public final class Main extends JavaPlugin {
             size = list() / 1048576.0D / 1000.0D;
             offlinePlayers = Bukkit.getOfflinePlayers().length;
             getLogger().info("[WorldStats] Finished checking file size: " + size);
+            metrics.addCustomChart(new Metrics.SingleLineChart("total_world_size", () -> (int) size));
+            metrics.addCustomChart(new Metrics.SingleLineChart("total_unique_players", () -> offlinePlayers));
         }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
