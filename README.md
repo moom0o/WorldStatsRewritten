@@ -1,7 +1,6 @@
 [![Discord Mine](https://img.shields.io/discord/807380182729228298?label=chat&logo=discord&logoColor=white)](https://discord.gg/JtKJF3Jgwm)
 # WorldStatsRewritten
 ### A better rewrite of the old Worldstats plugin that is more lightweight and doesn't cause lag.
-<br>
 [![bstats](https://bstats.org/signatures/bukkit/WorldStatsRewritten.svg)](https://bstats.org/plugin/bukkit/WorldStatsRewritten/10319)
 # World time
 For the plugin to calculate world time please convert the date of your map start to epoch milliseconds and set the time setting in config.yml to the epoch.
