@@ -1,9 +1,8 @@
 [![Discord Mine](https://img.shields.io/discord/807380182729228298?label=chat&logo=discord&logoColor=white)](https://discord.gg/JtKJF3Jgwm)
 # WorldStatsRewritten
-Much better world stats plugin than https://www.spigotmc.org/resources/worldstats.74355/
+### A better rewrite of the old Worldstats plugin that is more lightweight and doesn't cause lag.
+<br>
 [![bstats](https://bstats.org/signatures/bukkit/WorldStatsRewritten.svg)](https://bstats.org/plugin/bukkit/WorldStatsRewritten/10319)
-Server will no longer lag by spamming /stats!
-<br>MAKE SURE YOU REMOVE ALL OLD WORLDSTATS FILES!
 # World time
 For the plugin to calculate world time please convert the date of your map start to epoch milliseconds and set the time setting in config.yml to the epoch.
 # PlaceholderAPI
