@@ -1,7 +1,7 @@
 name: Worldstats
 version: ${project.version}
 main: me.moomoo.worldstats.Main
-softdepend: [ProtocolLib]
+softdepend: [PlaceholderAPI]
 commands:
   worldstats:
     usage: /<command>
