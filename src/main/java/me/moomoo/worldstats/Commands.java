@@ -1,6 +1,5 @@
 package me.moomoo.worldstats;
 
-import net.minecraft.server.v1_12_R1.CommandExecute;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,7 +9,7 @@ import org.bukkit.event.Listener;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-public class Commands extends CommandExecute implements CommandExecutor, Listener {
+public class Commands implements CommandExecutor, Listener {
     private final Main plugin;
 
     public Commands(Main plugin) {
