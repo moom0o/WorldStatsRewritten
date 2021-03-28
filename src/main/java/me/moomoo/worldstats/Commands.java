@@ -1,9 +1,12 @@
 package me.moomoo.worldstats;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 import java.text.DecimalFormat;
@@ -29,12 +32,21 @@ public class Commands implements CommandExecutor, Listener {
             mDay = 0;
         }
         for (String s : plugin.getConfig().getStringList("message")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', s)
-                    .replace("%years%", String.valueOf(mYear))
-                    .replace("%months%", String.valueOf(mMonth))
-                    .replace("%days%", String.valueOf(mDay))
-                    .replace("%fileSize%", new DecimalFormat("#.##").format(plugin.size))
-                    .replace("%totalPlayers%", String.valueOf(plugin.offlinePlayers)));
+            if (sender instanceof Player) {
+                sender.sendMessage(PlaceholderAPI.setPlaceholders((OfflinePlayer) sender, ChatColor.translateAlternateColorCodes('&', s)
+                        .replace("%years%", String.valueOf(mYear))
+                        .replace("%months%", String.valueOf(mMonth))
+                        .replace("%days%", String.valueOf(mDay))
+                        .replace("%fileSize%", new DecimalFormat("#.##").format(plugin.size))
+                        .replace("%totalPlayers%", String.valueOf(plugin.offlinePlayers))));
+            } else {
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', s)
+                        .replace("%years%", String.valueOf(mYear))
+                        .replace("%months%", String.valueOf(mMonth))
+                        .replace("%days%", String.valueOf(mDay))
+                        .replace("%fileSize%", new DecimalFormat("#.##").format(plugin.size))
+                        .replace("%totalPlayers%", String.valueOf(plugin.offlinePlayers)));
+            }
         }
         return true;
     }

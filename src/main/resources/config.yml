@@ -1,3 +1,4 @@
+# supports placeholderapi
 message:
   - '&7-----------------------------------------------------'
   - '&6%totalPlayers% &3player(s) have spawned at least once in the world. '

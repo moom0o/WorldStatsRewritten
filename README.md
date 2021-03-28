@@ -8,8 +8,10 @@ For the plugin to calculate world time please convert the date of your map start
 * %worldstats_filesize% - Get the cached file size.
 * %worldstats_players% - Get the cached unique players amount.
 * %worldstats_days% - Get how old the map is in DAYS
+
+Additionally, all placeholders are supported in the /stats message.
 # Support
-Please note I made this at 1AM on a school night so the code is probably shit and full of bugs, join my support discord if you have any issues.
+Join my support discord if you have any issues.
 <br>
 Discord: https://discord.gg/HfuyuqhXdb
 # Config
@@ -17,6 +19,7 @@ Discord: https://discord.gg/HfuyuqhXdb
   <summary>config.yml</summary>
 
 ```yml
+# supports placeholderapi
 message:
   - '&7-----------------------------------------------------'
   - '&6%totalPlayers% &3player(s) have spawned at least once in the world. '
@@ -24,8 +27,10 @@ message:
     size of &6%fileSize% GB'
   - '&7-----------------------------------------------------'
 filesizeupdate_in_ticks: 72000
-world: "./world/region"
-world_nether: "./world_nether/DIM-1/region"
-world_the_end: "./world_the_end/DIM1/region"
+Worlds:
+  - "./world/region"
+  - "./world_nether/DIM-1/region"
+  - "./world_the_end/DIM1/region"
+time: 0
 ```
 </details>
