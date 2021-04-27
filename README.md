@@ -19,6 +19,11 @@ setting in config.yml to the epoch.
 
 Additionally, all placeholders are supported in the /stats message.
 
+# Commands
+
+* /worldstats, /info, /stats, /icanhazstats reload - Reload the config
+* /worldstats, /info, /stats, /icanhazstats - Display world stats message
+
 # Support
 
 Join my support discord if you have any issues.
