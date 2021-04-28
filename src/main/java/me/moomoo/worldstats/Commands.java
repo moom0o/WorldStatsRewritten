@@ -1,6 +1,7 @@
 package me.moomoo.worldstats;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -33,7 +34,7 @@ public class Commands implements CommandExecutor, Listener {
                 mDay = 0;
             }
             for (String s : plugin.getConfig().getStringList("message")) {
-                if (sender instanceof Player) {
+                if (sender instanceof Player && Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
                     sender.sendMessage(PlaceholderAPI.setPlaceholders((OfflinePlayer) sender, ChatColor.translateAlternateColorCodes('&', s)
                             .replace("%years%", String.valueOf(mYear))
                             .replace("%months%", String.valueOf(mMonth))
