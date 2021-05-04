@@ -1,6 +1,8 @@
 // Plugin originally by HandsChrift however his plugin is the worst plugin I've ever seen so I remade it. https://read-my-man.ga/F1dlq6OUeA.png
 package me.moomoo.worldstats;
 
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.SingleLineChart;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,9 +31,9 @@ public final class Main extends JavaPlugin {
             getLogger().info("[WorldStats] Finished checking file size: " + size);
         }).start(), 0L, getConfig().getLong("filesizeupdate_in_ticks")); // 72000
         Bukkit.getScheduler().runTaskLater(this, () -> {
-            metrics.addCustomChart(new Metrics.SingleLineChart("total_world_size", () -> (int) size));
-            metrics.addCustomChart(new Metrics.SingleLineChart("total_unique_players", () -> offlinePlayers));
-            metrics.addCustomChart(new Metrics.SingleLineChart("total_map_age", () -> Math.toIntExact(TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - getConfig().getLong("time")))));
+            metrics.addCustomChart(new SingleLineChart("total_world_size", () -> (int) size));
+            metrics.addCustomChart(new SingleLineChart("total_unique_players", () -> offlinePlayers));
+            metrics.addCustomChart(new SingleLineChart("total_map_age", () -> Math.toIntExact(TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - getConfig().getLong("time")))));
         }, 12000L);
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
