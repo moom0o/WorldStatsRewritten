@@ -5,7 +5,9 @@ message:
   - '&3The World is &6%years% years, %months% months and %days% days old &3and has a file
     size of &6%fileSize% GB'
   - '&7-----------------------------------------------------'
+# %fileSize_spoof% for spoofed filesize
 filesizeupdate_in_ticks: 72000
+spoofsize: 0 # Specify how many gb should be added on top of the filesize, will be %fileSize_spoof%. Useful for if you shrink your world (deleting useless chunks)
 Worlds:
   - "./world/region"
   - "./world_nether/DIM-1/region"

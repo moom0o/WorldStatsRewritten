@@ -14,6 +14,7 @@ setting in config.yml to the epoch.
 # PlaceholderAPI
 
 * %worldstats_filesize% - Get the cached file size.
+* %worldstats_filesizespoof% - Get the spoofed file size, useful for when you shrink your world.
 * %worldstats_players% - Get the cached unique players amount.
 * %worldstats_days% - Get how old the map is in DAYS
 

@@ -44,6 +44,9 @@ public class Expansions extends PlaceholderExpansion {
         if (identifier.equals("filesize")) {
             return String.valueOf(new DecimalFormat("#.##").format(plugin.size));
         }
+        if (identifier.equals("filesizespoof")) {
+            return String.valueOf(new DecimalFormat("#.##").format(plugin.size + plugin.getConfig().getLong("spoofsize")));
+        }
         if (identifier.equals("players")) {
             return String.valueOf(plugin.offlinePlayers);
         }

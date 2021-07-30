@@ -40,6 +40,7 @@ public class Commands implements CommandExecutor, Listener {
                             .replace("%months%", String.valueOf(mMonth))
                             .replace("%days%", String.valueOf(mDay))
                             .replace("%fileSize%", new DecimalFormat("#.##").format(plugin.size))
+                            .replace("%fileSize_spoof%", new DecimalFormat("#.##").format(plugin.size + plugin.getConfig().getLong("spoofsize")))
                             .replace("%totalPlayers%", String.valueOf(plugin.offlinePlayers))));
                 } else {
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', s)
@@ -47,6 +48,7 @@ public class Commands implements CommandExecutor, Listener {
                             .replace("%months%", String.valueOf(mMonth))
                             .replace("%days%", String.valueOf(mDay))
                             .replace("%fileSize%", new DecimalFormat("#.##").format(plugin.size))
+                            .replace("%fileSize_spoof%", new DecimalFormat("#.##").format(plugin.size + plugin.getConfig().getLong("spoofsize")))
                             .replace("%totalPlayers%", String.valueOf(plugin.offlinePlayers)));
                 }
             }
